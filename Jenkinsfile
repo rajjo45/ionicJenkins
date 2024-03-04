@@ -8,11 +8,12 @@ pipeline {
 
  stages {
 
-       stage('NPM Setup') {
-          steps {
-             sh 'npm install'
+      stage('NPM Install') {
+         steps {
+            echo 'execute cmd ...'
+            bat "npm install"
          }
-       }
+      }
 
        stage('IOS Build') {
           steps {
