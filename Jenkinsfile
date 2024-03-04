@@ -4,18 +4,17 @@ pipeline {
 
     environment {
         PATH='C://Program Files//nodejs'
+        PATH = 'PATH' + ';c:\\Windows\\System32' 
 	}
 
     stages {
 
-      stage('NPM Setup') {
-            cmd_exec('echo "Buils starting..."')
-            cmd_exec('npm install')
-      }
-
-      def cmd_exec(command) {
-          return bat(returnStdout: true, script: "${command}").trim()
-      }
+      stage('test cmd shell') {
+         steps {
+            echo 'execute cmd ...'
+            bat "npm install"
+         }
+    }
 
        stage('IOS Build') {
           steps {
