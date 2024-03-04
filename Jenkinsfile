@@ -10,7 +10,7 @@ pipeline {
 
        stage('NPM Setup') {
           steps {
-             sh 'npm install'
+          bat 'cmd /c npm install'
          }
        }
 
