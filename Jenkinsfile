@@ -6,26 +6,25 @@ pipeline {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
 	}
 
-    stages {
+ stages {
 
-      stage('test cmd shell') {
-         steps {
-            echo 'execute cmd ...'
-            bat "npm install"
+       stage('NPM Setup') {
+          steps {
+             sh 'npm install'
          }
-    }
+       }
 
        stage('IOS Build') {
           steps {
-             sh 'ionic cordova build ios --release'
-             
+            // sh 'ionic cordova build ios --release'
+             echo "iOS"
           }
        }
 
        stage('Android Build') {
           steps {
-               sh 'ionic cordova build android --release'
-               
+              // sh 'ionic cordova build android --release'
+               echo "Android"
           }
        }
 
@@ -36,6 +35,12 @@ pipeline {
           }
        }
 
+       stage('Android Release') {
+          steps {
+              // sh 'mv platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk release/wall.apk'
+               echo "Android"
+          }
+       }
 
 
       stage('Stage Web Build') {
@@ -46,8 +51,7 @@ pipeline {
 
          stage('Publish Firebase Web') {
           steps {
-              //sh 'firebase deploy --token "YourTokenKey"'
-              echo 'Firebase Deploy'
+              sh 'firebase deploy --token "YourTokenKey"'
           }
        }
 
@@ -62,7 +66,9 @@ pipeline {
               echo "Publish Android"
           }
        }
-      
+
+
 }
 }
+
 
