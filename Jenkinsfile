@@ -8,11 +8,14 @@ pipeline {
 
     stages {
 
-       stage('NPM Setup') {
-          steps {
-           cmd_exec('npm install')
-         }
-       }
+      stage('NPM Setup') {
+            cmd_exec('echo "Buils starting..."')
+            cmd_exec('npm install')
+      }
+
+      def cmd_exec(command) {
+          return bat(returnStdout: true, script: "${command}").trim()
+      }
 
        stage('IOS Build') {
           steps {
@@ -61,10 +64,6 @@ pipeline {
               echo "Publish Android"
           }
        }
-
-def cmd_exec(command) {
-    return bat(returnStdout: true, script: "${command}").trim()
-}
       
 }
 }
