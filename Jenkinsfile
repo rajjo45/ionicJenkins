@@ -3,8 +3,7 @@ pipeline {
     agent any
 
     environment {
-        PATH='C://Program Files//nodejs'
-        PATH = 'PATH' + ';c:\\Windows\\System32' 
+        PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
 	}
 
     stages {
