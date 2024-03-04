@@ -10,7 +10,7 @@ pipeline {
 
        stage('NPM Setup') {
           steps {
-          bat 'cmd /c npm install'
+           cmd_exec('npm install')
          }
        }
 
@@ -62,7 +62,10 @@ pipeline {
           }
        }
 
-
+def cmd_exec(command) {
+    return bat(returnStdout: true, script: "${command}").trim()
+}
+      
 }
 }
 
