@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        PATH='/usr/local/bin:/usr/bin:/bin'
+        PATH='/Users/awc-110812/'
 	}
 
     stages {
@@ -16,14 +16,14 @@ pipeline {
 
        stage('IOS Build') {
           steps {
-             sh 'ionic cordova build ios --release'
+             // sh 'ionic cordova build ios --release'
              
           }
        }
 
        stage('Android Build') {
           steps {
-               sh 'ionic cordova build android --release'
+               // sh 'ionic cordova build android --release'
                
           }
        }
@@ -39,7 +39,7 @@ pipeline {
 
       stage('Stage Web Build') {
           steps {
-              sh 'npm run build --prod'
+              // sh 'npm run build --prod'
           }
        }
 
