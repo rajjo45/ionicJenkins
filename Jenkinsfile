@@ -16,14 +16,14 @@ pipeline {
 
        stage('IOS Build') {
           steps {
-             // sh 'ionic cordova build ios --release'
+             echo 'ionic cordova build ios --release'
              
           }
        }
 
        stage('Android Build') {
           steps {
-               // sh 'ionic cordova build android --release'
+               echo 'ionic cordova build android --release'
                
           }
        }
@@ -40,6 +40,7 @@ pipeline {
       stage('Stage Web Build') {
           steps {
               // sh 'npm run build --prod'
+            echo 'hello'
           }
        }
 
